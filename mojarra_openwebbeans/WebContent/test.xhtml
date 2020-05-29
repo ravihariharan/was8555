@@ -1,68 +1,36 @@
-<!--
-	
-	Licensed to the Apache Software Foundation (ASF) under one or more
-	contributor license agreements. See the NOTICE file distributed with
-	this work for additional information regarding copyright ownership.
-	The ASF licenses this file to You under the Apache License, Version
-	2.0 (the "License"); you may not use this file except in compliance
-	with the License. You may obtain a copy of the License at
-	
-	http://www.apache.org/licenses/LICENSE-2.0 Unless required by
-	applicable law or agreed to in writing, software distributed under the
-	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-	CONDITIONS OF ANY KIND, either express or implied. See the License for
-	the specific language governing permissions and limitations under the
-	License.
--->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
 	xmlns:h="http://java.sun.com/jsf/html">
 
 <h:head>
-	<title>PrimeFaces Test</title>
+	<title>JSF 2.2</title>
 </h:head>
 <h:body>
 
 	<h1>#{testView.testString}</h1>
 	<h:form id="frmTest">
 
-		<p:inputText id="name" value="#{testView.name}"></p:inputText>
-		<p:commandButton value="Welcome Me" process="@this name"
-			update="output">
-		</p:commandButton>
-		<h2>
-			<h:outputText id="output" value="#{testView.sayWelcome}" />
-		</h2>
-
 		<h2>
 			<h:outputText value="non-ajax fails" />
 		</h2>
-		<h:panelGrid columns="2">
+		<h2>
 			<h:commandButton value="h:commandButton non-ajax"
 				action="#{testView.goNext()}">
 			</h:commandButton>
-			<p:commandButton value="p:commandButton non-ajaax"
-				action="#{testView.goNext()}" ajax="false" />
-		</h:panelGrid>
-		
+		</h2>
+
 		<h2>
 			<h:outputText value="ajax working" />
 		</h2>
-		
-		<h:panelGrid columns="2">
 
+		<h2>
 			<h:commandButton value="h:commandButton ajax"
 				action="#{testView.goNext()}">
 				<f:ajax execute="@form" />
 			</h:commandButton>
-
-			<p:commandButton value="p:commandButton ajax"
-				action="#{testView.goNext()}" ajax="true" />
-
-		</h:panelGrid>
+		</h2>
 
 	</h:form>
 
