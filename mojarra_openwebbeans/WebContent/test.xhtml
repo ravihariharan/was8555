@@ -33,14 +33,37 @@
 		<p:commandButton value="Welcome Me" process="@this name"
 			update="output">
 		</p:commandButton>
-
 		<h2>
 			<h:outputText id="output" value="#{testView.sayWelcome}" />
 		</h2>
 
 		<h2>
-			<p:commandButton value="Page 2" action="#{testView.goNext()}" ajax="false" />
+			<h:outputText value="non-ajax fails" />
 		</h2>
+		<h:panelGrid columns="2">
+			<h:commandButton value="h:commandButton non-ajax"
+				action="#{testView.goNext()}">
+			</h:commandButton>
+			<p:commandButton value="p:commandButton non-ajaax"
+				action="#{testView.goNext()}" ajax="false" />
+		</h:panelGrid>
+		
+		<h2>
+			<h:outputText value="ajax working" />
+		</h2>
+		
+		<h:panelGrid columns="2">
+
+			<h:commandButton value="h:commandButton ajax"
+				action="#{testView.goNext()}">
+				<f:ajax execute="@form" />
+			</h:commandButton>
+
+			<p:commandButton value="p:commandButton ajax"
+				action="#{testView.goNext()}" ajax="true" />
+
+		</h:panelGrid>
+
 	</h:form>
 
 </h:body>
